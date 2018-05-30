@@ -1,0 +1,1 @@
+* bitbucket-trigger-ci-on-topic-branches
