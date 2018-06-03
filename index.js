@@ -6,10 +6,7 @@ exports.handler = (event, context, callback) => {
   const targetBranch = data.pullrequest.destination.branch.name
 
   if (targetBranch !== 'develop') {
-    callback(null, {
-      statusCode: 200,
-      body: 'PR did not target develop. Ignoring.'
-    })
+    callback(null, { statusCode: 200, body: 'PR did not target develop. Ignoring.' })
     return
   }
 
