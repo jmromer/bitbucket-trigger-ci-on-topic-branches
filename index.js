@@ -18,10 +18,7 @@ exports.handler = (event, context, callback) => {
     ))
     .then(branches => {
       const message = `[${repository}] Triggered pipelines for ${branches.join(', ')}`
-      callback(null, {
-        statusCode: 200,
-        body: message
-      })
+      callback(null, { statusCode: 200, body: message })
     })
     .catch((err, resp) => {
       callback(null, {
