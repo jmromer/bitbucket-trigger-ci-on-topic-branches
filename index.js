@@ -21,9 +21,6 @@ exports.handler = (event, context, callback) => {
       callback(null, { statusCode: 200, body: message })
     })
     .catch((err, resp) => {
-      callback(null, {
-        statusCode: 500,
-        body: `error: ${err}\ndata: ${resp}`
-      })
+      callback(null, { statusCode: 500, body: `error: ${err}\ndata: ${resp}` })
     })
 }

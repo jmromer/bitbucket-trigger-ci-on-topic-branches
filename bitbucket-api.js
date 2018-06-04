@@ -20,9 +20,7 @@ export const getBranches = repository => {
       let body = []
       res.setEncoding('utf8')
       res.on('error', err => reject(err))
-      res.on('data', data => {
-        body.push(data)
-      })
+      res.on('data', data => { body.push(data) })
       res.on('end', () => {
         try {
           const data = JSON.parse(body.join(''))
@@ -40,7 +38,7 @@ export const getBranches = repository => {
   return promise
 }
 
-export const triggerBranches = (repository, branch) => {
+export const triggerPipeline = (repository, branch) => {
   const postData = {
     'target': {
       'ref_type': 'branch',
@@ -68,9 +66,7 @@ export const triggerBranches = (repository, branch) => {
         resolve(branch)
       })
       res.on('error', err => {
-        console.log(
-          `Pipeline trigger failed for branch: ${branch}. Error: ${err}`
-        )
+        console.log(`Pipeline trigger failed for branch: ${branch}. Error: ${err}`)
         reject(err)
       })
     })
